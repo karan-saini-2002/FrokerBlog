@@ -1,0 +1,285 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: orangered;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Logo styling */
+.header .logo {
+  max-width: 150px;
+  vertical-align: middle;
+}
+
+/* Navigation styling */
+.header .nav {
+  display: flex; /* Ensure items are in a row */
+  margin-left: auto; /* Pushes navigation to the right */
+}
+
+/* Navigation links styling */
+.header .nav a {
+  color: orangered;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 1.7rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: row; /* Ensure header remains in a row layout */
+    align-items: center; /* Align items vertically centered */
+  }
+
+  .header .nav {
+    margin-left: 0;
+    width: auto; /* Adjust width for better fit */
+    justify-content: center; /* Center align the navigation items */
+  }
+
+  .header .nav a {
+    font-size: 1.2rem; /* Reduce font size for medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .header .nav a {
+    font-size: 1rem; /* Further reduce font size for very small screens */
+  }
+
+  .header .logo {
+    max-width: 120px; /* Adjust logo size for smaller screens */
+  }
+}
+
+.hero {
+  background-color: white;
+  color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.hero h3 {
+  margin: 0;
+  font-size: 40px;
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+.hero p {
+  font-size: 60px;
+  margin: 10px 0 0;
+  color: black;
+  max-width: 50%; /* Occupy 50% of the page width */
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+  word-break: break-word; /* Ensure text breaks to the next line */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero p {
+    max-width: 70%; /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero p {
+    max-width: 90%; /* Adjust for very small screens */
+  }
+}
+
+.orange-text {
+  color: orangered;
+}
+
+.black-text {
+  color: black;
+}
+
+main {
+  flex: 1;
+}
+/* Default styles for .shana */
+.shana {
+  background-color: white;
+  padding: 20px; /* Add some padding if needed */
+}
+
+.shana p {
+  background-color: white;
+  margin: 0 auto; /* Center the text block */
+  font-size: 40px;
+  margin-left: 250px;
+  
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .shana p {
+    margin-left: auto; /* Remove the fixed left margin */
+    margin-right: auto; /* Center the text block */
+    font-size: 35px; /* Adjust font size for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .shana p {
+    margin-left: 20px; /* Add some left margin on smaller screens */
+    margin-right: 20px; /* Add some right margin on smaller screens */
+    font-size: 30px; /* Further reduce font size */
+    text-align: center; /* Ensure text is centered */
+  }
+}
+
+@media (max-width: 480px) {
+  .shana p {
+    margin-left: 10px; /* Reduce margin for very small screens */
+    margin-right: 10px; /* Reduce margin for very small screens */
+    font-size: 25px; /* Reduce font size for very small screens */
+  }
+}
+
+/* Footer styling */
+.footer {
+  background-color: #f8f8f8;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  flex-wrap: wrap;
+  font-size: 1.5rem;
+}
+
+.footer-logo img {
+  max-width: 250px;
+  width: 200px;
+  margin-bottom: 20px;
+  margin-right: 50px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  margin: 0 20px;
+}
+
+.footer-quicklinks {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-quicklinks ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-quicklinks li {
+  margin-bottom: 10px;
+}
+
+.footer-quicklinks a {
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-quicklinks a:hover {
+  text-decoration: underline;
+}
+
+.footer-contact {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-contact h4 {
+  margin-bottom: 10px;
+}
+
+.footer-contact p {
+  margin: 5px 0;
+}
+
+.footer-contact a {
+  color: #007bff;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-scan {
+  text-align: right;
+  align-self: flex-end; /* Aligns this section to the bottom right */
+}
+
+.footer-scan img {
+  max-width: 250px;
+  width: 200px;
+  margin-top: 10px;
+}
+
+.footer-scan h4 {
+  margin-bottom: 10px;
+}
+
+.footer p {
+  margin-top: 20px;
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .footer-quicklinks,
+  .footer-contact {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .footer-scan {
+    text-align: center;
+    align-self: center; /* Centers this section on small screens */
+    margin-top: 20px;
+  }
+}
