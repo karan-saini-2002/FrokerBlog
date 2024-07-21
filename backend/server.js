@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -12,7 +11,9 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://karansaini452002:4Sg0sN1AwvBhd7jY@cluster0.e6sp83k.mongodb.net/', {
+const mongoURI = 'mongodb+srv://karansaini452002:4Sg0sN1AwvBhd7jY@cluster0.e6sp83k.mongodb.net/yourDatabaseName?retryWrites=true&w=majority';
+
+mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -27,7 +28,7 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-// Define the Blog schema
+
 const blogSchema = new mongoose.Schema({
   title: { type: String, required: true },
   introduction: { type: String, required: true },
@@ -39,19 +40,40 @@ const blogSchema = new mongoose.Schema({
 
 const Blog = mongoose.model('Blog', blogSchema);
 
-// Route to get all blogs with pagination
+
 app.get('/api/blogs', async (req, res) => {
-  const { page = 1, limit = 10 } = req.query;
-  try {
-    const skip = (page - 1) * limit;
-    const blogs = await Blog.find().skip(skip).limit(Number(limit));
-    const totalBlogs = await Blog.countDocuments();
-    const totalPages = Math.ceil(totalBlogs / limit);
-    res.json({ blogs, totalPages });
-  } catch (error) {
-    res.status(500).json({ message: 'Server error' });
-  }
+    const { page = 1, limit = 9 } = req.query;
+    
+    
+    const pageNumber = Number(page);
+    const limitNumber = Number(limit);
+
+    try {
+       
+        if (isNaN(pageNumber) || isNaN(limitNumber) || pageNumber < 1 || limitNumber < 1) {
+            return res.status(400).json({ message: 'Invalid page or limit values' });
+        }
+
+        
+        const skip = (pageNumber - 1) * limitNumber;
+
+        
+        const blogs = await Blog.find().skip(skip).limit(limitNumber);
+
+     
+        const totalBlogs = await Blog.countDocuments();
+
+        
+        const totalPages = Math.ceil(totalBlogs / limitNumber);
+
+        
+        res.json({ blogs, totalPages });
+    } catch (error) {
+        res.status(500).json({ message: 'Server error' });
+    }
 });
+
+  
 
 // Start the server
 const PORT = process.env.PORT || 5000;

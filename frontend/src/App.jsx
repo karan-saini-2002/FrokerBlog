@@ -1,4 +1,3 @@
-// App.js
 import React from 'react';
 import BlogList from './components/BlogList';
 import NewsletterSubscription from './components/NewsletterSubscription';
@@ -43,7 +42,7 @@ function App() {
           <div className="footer-quicklinks">
             
             <ul>
-            <h4>Quick Links</h4>
+            <h4>Quicklinks</h4>
               <li> <a href="#home">Home</a></li>
               <li> <a href="#about">About Us</a></li>
               <li> <a href="#privacy">Privacy Policy</a></li>
@@ -52,7 +51,7 @@ function App() {
             </ul>
           </div>
           <div className="footer-contact">
-            <h4>Contact Us</h4>
+            <h4>Contacts</h4>
             <p>Whitefield, Bengaluru, 560066</p>
             <p>Email: <a href="mailto:support@froker.in">support@froker.in</a></p>
             </div>
@@ -63,6 +62,7 @@ function App() {
           </div>
         </div>
       </div>
+      
       <p>&copy; 2024 Froker Blogs. All rights reserved.</p>
     </footer>
     </div>

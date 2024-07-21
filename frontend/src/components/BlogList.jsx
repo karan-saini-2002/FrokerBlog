@@ -7,21 +7,31 @@ const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const limit = 9; 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/blogs?page=${currentPage}`)
-      .then(response => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/api/blogs?page=${currentPage}&limit=${limit}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        return response.json();
-      })
-      .then(data => {
+        const data = await response.json();
         setBlogs(data.blogs);
         setTotalPages(data.totalPages);
-      })
-      .catch(error => console.error('Error fetching blogs:', error));
-  }, [currentPage]);
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+      }
+    };
+
+    fetchBlogs();
+  }, [currentPage, limit]); 
+
+  const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
 
   return (
     <div className="blog-list">
@@ -37,7 +47,7 @@ const BlogList = () => {
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
-        onPageChange={setCurrentPage}
+        onPageChange={handlePageChange} 
       />
     </div>
   );

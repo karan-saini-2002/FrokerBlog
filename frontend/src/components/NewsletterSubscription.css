@@ -1,4 +1,4 @@
-/* Ensure flex container is centered */
+
 .page-container {
     display: flex;
     justify-content: center;
@@ -14,9 +14,9 @@
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%; /* Adjusted width */
+    width: 80%; 
     height:350px;
-    max-width: 900px; /* Adjusted max width */
+    max-width: 900px; 
   }
   
   .subscription-image {
@@ -40,10 +40,10 @@
   }
   
   .newsletter-input {
-    flex: 1; /* Takes up remaining space */
+    flex: 1; 
     padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 10px 0 0 10px; /* Rounded corners only on left side */
+    border-radius: 10px 0 0 10px; 
   }
   
   .newsletter-button {
@@ -51,7 +51,7 @@
     background-color: orangered;
     color: #fff;
     border: none;
-    border-radius: 0 10px 10px 0; /* Rounded corners only on right side */
+    border-radius: 0 10px 10px 0; 
     cursor: pointer;
   }
   
@@ -59,7 +59,7 @@
     background-color:orangered;
   }
   
-  /* Responsive adjustments */
+  
   @media (max-width: 768px) {
     .newsletter-subscription {
       flex-direction: column;
