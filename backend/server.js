@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+require('dotenv').config();
 // Create an instance of Express
 const app = express();
 
@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Connect to MongoDB
-const mongoURI = 'mongodb+srv://karansaini452002:4Sg0sN1AwvBhd7jY@cluster0.e6sp83k.mongodb.net/yourDatabaseName?retryWrites=true&w=majority';
+const mongoURI = process.env.MONGO_URI;
 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
