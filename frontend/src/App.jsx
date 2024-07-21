@@ -1,13 +1,18 @@
 import React from 'react';
 import BlogList from './components/BlogList';
 import NewsletterSubscription from './components/NewsletterSubscription';
+import pImage from './images/logo.png';
+
+import qImage from './images/qr.jpg';
+
+
 import './App.css';
 
 function App() {
   return (
     <div className="app">
       <header className="header">
-        <img src="logo.png" alt="Froker Blogs" className="logo" />
+        <img src={pImage}  alt="Froker Blogs" className="logo" />
         <nav className="nav">
           <a href="#home">Home</a>
           <a href="#blogs">Blogs</a>
@@ -36,7 +41,7 @@ function App() {
       <footer className="footer">
       <div className="footer-content">
         <div className="footer-logo">
-          <img src="logo.png" alt="Company Logo" />
+          <img src={pImage} alt="Company Logo" />
         </div>
         <div className="footer-links">
           <div className="footer-quicklinks">
@@ -57,7 +62,7 @@ function App() {
             </div>
             <div className="footer-scan">
               <h4>Scan To Download</h4>
-              <img src="qr.jpg" alt="QR Code" />
+              <img src={qImage} alt="QR Code" />
             
           </div>
         </div>
